@@ -1,0 +1,6 @@
+docs-private/
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
