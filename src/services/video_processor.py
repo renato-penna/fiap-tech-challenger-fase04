@@ -100,4 +100,3 @@ class VideoProcessor:
                 self.frame_count / self.fps if self.fps > 0 else 0
             )
         }
-
