@@ -7,13 +7,12 @@ emotion analysis, and activity detection.
 
 from src.services.video_processor import VideoProcessor
 from src.services.detectors import FaceDetector
-
-# TODO: Add when EmotionAnalyzer and ActivityDetector are implemented
-# from src.services.detectors import EmotionAnalyzer, ActivityDetector
+from src.services.detectors import EmotionAnalyzer
+from src.services.detectors import ActivityDetector
 
 __all__ = [
     'VideoProcessor',
     'FaceDetector',
-    # 'EmotionAnalyzer',  # TODO: Implementar
-    # 'ActivityDetector'  # TODO: Implementar
+    'EmotionAnalyzer',
+    'ActivityDetector'
 ]

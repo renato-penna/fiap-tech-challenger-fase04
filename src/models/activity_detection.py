@@ -1,41 +1,39 @@
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
 class ActivityDetection:
     """
-    Represents an activity detected in the video based on body pose.
+    Representa uma atividade detectada no vídeo com base na pose corporal.
 
-    This class stores information about activities or actions identified
-    through pose estimation analysis (body keypoint detection).
-    YOLOv11 with pose estimation can detect multiple people and their
-    activities even with partial occlusion or complex poses.
+    Esta classe armazena informações sobre atividades ou ações identificadas
+    através da análise de estimativa de pose (detecção de pontos-chave do corpo).
+    O YOLOv11 com estimativa de pose pode detectar várias pessoas e suas
+    atividades mesmo com oclusão parcial ou poses complexas.
 
-    Activity detection is performed by analyzing the relative position
-    of body keypoints (shoulders, elbows, wrists, knees, etc.) to
-    infer actions such as "hands up", "sitting", "standing", etc.
+    A detecção de atividade é realizada analisando a posição relativa
+    dos pontos-chave do corpo (ombros, cotovelos, pulsos, joelhos, etc.) para
+    inferir ações como "mãos para cima", "sentado", "em pé", etc.
 
-    Attributes:
-        activity (str): Name of the detected activity. Common examples:
-            - "hands_up"
-            - "sitting"
-            - "standing"
-            - "walking"
-            - "raising_hand"
-            - "pointing"
-        confidence (float): Confidence level of activity detection,
-            ranging from 0.0 (no confidence) to 1.0 (full confidence).
-            Indicates how certain the AI is about the identified activity.
+    Atributos:
+        activity (str): Nome da atividade detectada. Exemplos comuns:
+            - "talking" (falando)
+            - "listening" (ouvindo)
+            - "standing" (em pé)
+            - "sitting" (sentado)
+            - "waving" (acenando)
+        confidence (float): Nível de confiança da detecção da atividade,
+            variando de 0.0 (sem confiança) a 1.0 (confiança total).
+            Indica quão certa a IA está sobre a atividade identificada.
+        track_id (Optional[int]): ID de rastreamento da pessoa (para consistência temporal).
+            Permite acompanhar a mesma pessoa ao longo dos frames.
 
-    Example:
-        >>> activity = ActivityDetection(activity="hands_up", confidence=0.92)
+    Exemplo:
+        >>> activity = ActivityDetection(activity="waving", confidence=0.92, track_id=1)
         >>> conf = activity.confidence * 100
-        >>> print(f"Activity: {activity.activity} ({conf}% confidence)")
-
-    Note:
-        Unlike MediaPipe which has limitations with multiple people and
-        occlusion, YOLOv11 offers better accuracy and support for more
-        complex scenarios with multiple simultaneous people.
+        >>> print(f"Atividade: {activity.activity} ({conf}% confiança)")
     """
     activity: str
     confidence: float
+    track_id: Optional[int] = None
