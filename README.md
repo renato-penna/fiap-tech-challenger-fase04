@@ -41,6 +41,17 @@ fiap-tech-challenger-fase04/
 └── README.md
 ```
 
+## Notebooks
+
+The project development is documented in the following Jupyter notebooks:
+
+- **01-video_processor.ipynb**: Video manipulation basics and frame extraction.
+- **02-face_detection.ipynb**: Face detection implementation using YOLOv11.
+- **03-emotion_analysis.ipynb**: Emotion recognition with DeepFace.
+- **04-activity_detection.ipynb**: Activity recognition using pose estimation heuristics.
+- **05-scene_analysis.ipynb**: Scene detection and segmentation logic.
+- **06-final_pipeline.ipynb**: Complete integrated pipeline (Video -> Report).
+
 ## Installation
 
 1. Clone the repository:
